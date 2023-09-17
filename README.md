@@ -8,5 +8,3 @@ We can add one more filter function and input like title search, it can be dropd
 3. Implement smooth transitions or animations when navigating between the gallery and details pages.
 We can use serveral transitions and apply it on the top level <div> of the component
 
-I' m looking forward to hearing from you
-Regards
