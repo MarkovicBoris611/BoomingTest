@@ -25,9 +25,15 @@ export const HeaderText = styled.p`
     color: #BF4F74;
 `
 
-const Input = styled.input`
+export const TitleInput = styled.input`
     position: absolute;
     right: 16px;
+    padding: 10px;
+    border-radius: 30px;
+`
+export const AlbumIDInput = styled.input`
+    position: absolute;
+    left: 16px;
     padding: 10px;
     border-radius: 30px;
 `
@@ -37,14 +43,29 @@ interface HeaderInterface {
     content: string;
     searchStr?: string | undefined;
     setSearchStr?: (str: string | undefined) => void;
+    albumId?: number | '',
+    setAlbumId?: (num: number | '') => void;
 }
 
-const Header = ({ goBack, content, searchStr, setSearchStr }: HeaderInterface) => {
+const Header = ({ goBack, content, searchStr, setSearchStr, albumId, setAlbumId }: HeaderInterface) => {
     return (
         <Container>
             {goBack && <Button onClick={goBack}>Back</Button>}
             <HeaderText>{content}</HeaderText>
-            {setSearchStr && <Input
+            {setAlbumId && <AlbumIDInput
+                value={albumId}
+                placeholder="AlbumID"
+                type="number"
+                onChange={e => {
+                    const value = e.target.value;
+                    if (value === '') {
+                        setAlbumId('')
+                    } else {
+                        setAlbumId(Number(value))
+                    }
+                }}
+            />}
+            {setSearchStr && <TitleInput
                 value={searchStr}
                 placeholder="Type here to search by title"
                 onChange={e => setSearchStr(e.target.value)}

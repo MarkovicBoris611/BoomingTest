@@ -31,4 +31,9 @@ export const ThumbnailTitle = styled.p`
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+`
+
+export const FavoriteIconContainer = styled.div`
+    float: right;
 `
